@@ -1,2 +1,2 @@
-# codeReading
-Read and understand great code, from scratch.
+## codeReading
+> Read and understand great code, from scratch.

@@ -1,0 +1,23 @@
+language: python
+python:
+    - "3.6"
+sudo: false
+env:
+    - OMP_NUM_THREADS=4 
+addons:
+    apt:
+        packages:
+            - doxygen
+            - doxygen-doc 
+            - doxygen-latex
+            - doxygen-gui
+            - graphviz
+install:
+    - pip install -r requirements.txt
+    - python install.py
+script:
+    - pytest -v test/SimpleSchrodinger.py
+    - python test/SimpleSchrodinger.py MP
+    - pytest -v test/testMaterial.py
+    - pytest -v test/testQCLayers.py
+    - cd docs; make html
